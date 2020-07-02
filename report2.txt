@@ -1,0 +1,78 @@
+﻿--------------------------
+
+学籍番号 : 1616163
+氏名 : 吉川純平
+
+--------------------------
+
+回答1.2 : イベントハンドラを登録したオブジェクトは次のとおり
+sceneオブジェクトにだけ登録した。
+
+
+
+
+イベントハンドラを上のように登録した理由は以下のとおり
+sceneオブジェクトに登録しておけば、子であるボタンや、テキストなどの操作をすることができるから。
+
+
+
+
+
+回答4 : package para.graphic.parserの動作の説明
+MainParser mp = new MainParser(target,sm);
+    Scanner s;
+    while(true){
+      s = new Scanner(data);
+      mp.parse(s);
+    }
+としないと動作しない。
+この場合、文字列shapeからShapeManagerParserが呼ばれ、idに0が代入され、文字列CircleからCircleParserが呼ばれ、xに10、ｙに10、rに40が代入され、文字列AttributeからAttributeParserが呼ばれ、r,g,bにそれぞれ、100、40、60が代入され、文字列fillが読み込まれ、変数fillにtrueが代入される。そして、文字列targetからTargetParserが呼ばれ、文字列drawからDrawParserが呼ばれる。さらに、文字列targetからTargetParserが呼ばれ、文字列flushからFlushParserが呼ばれる。
+
+
+
+
+
+if-else文を並べた実装方法と比べた拡張性に関する利点はつぎのとおり
+
+新しい実装を加えたときに、元々のプログラムをほとんど変更せずにプログラムを書き加えることができる点。
+
+
+
+
+
+
+
+回答5 : para.graphic.parserパッケージの各クラスのアクセス修飾を次のようにした
+AttributeParser       public -> 無修飾
+CircleParser          public -> 無修飾
+ImageParser           public -> 無修飾
+MainParser            public -> public
+MetaParser            public -> 無修飾
+RectangleParser       public -> 無修飾
+ShapeManagerParser    public -> 無修飾
+ShapeParser           public -> 無修飾
+TargetParser          public -> 無修飾
+
+
+他、無修飾
+
+上記のようにアクセス修飾をした理由は次のとおり
+別のパッケージから呼ばれているMainParserはまずPublicである必要があり、他は同一パッケージ内からしか呼ばれていないので、無修飾がよい。
+
+
+
+
+
+
+回答6 : para.graphic.parser.ImageParserの仕組みの説明
+画像ファイルを読み込むためのものである。
+
+
+
+
+
+
+
+
+
+工夫した点や感想：
